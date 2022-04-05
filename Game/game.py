@@ -1,8 +1,8 @@
 import pygame 
 import random 
-from Game.rock import Rock
-from Game.rocket import Rocket
-from Game.listOfRocks import ListOfRocks
+from rock import Rock
+from rocket import Rocket
+from listOfRocks import ListOfRocks
   
 pygame.init()  
 fpsClock = pygame.time.Clock()
