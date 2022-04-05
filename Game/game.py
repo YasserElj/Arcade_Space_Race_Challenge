@@ -31,24 +31,15 @@ while not done:
     rocket.update(screen)
     listOfRocks.update(fpsClock.get_time()/1000, rocket.score)
     
-
     # draw
     
     screen.fill((0,0,0))
-    
-    
+       
     listOfRocks.draw(screen)
-
-    
    
     rocket.draw(screen)
 
-
     rocket.drawScore(screen)
 
-
-
-
-    
     pygame.display.flip()  
     fpsClock.tick(30)
