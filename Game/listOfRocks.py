@@ -1,7 +1,7 @@
 from math import sqrt, log10, atan,pi
 from random import randrange
 import pygame
-from rock import Rock
+from Game.rock import Rock
 
 class ListOfRocks:
 
