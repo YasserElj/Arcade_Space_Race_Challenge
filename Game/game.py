@@ -15,13 +15,18 @@ pygame.mixer.music.load('sounds/music.mp3')
 pygame.mixer.music.set_volume(0.3)
 pygame.mixer.music.play(-1)
 
+centerRect = pygame.Rect(320, 100, 2, 380)
+
+
 # initialzing the list of rocks
 
 listOfRocks = ListOfRocks()
 
 # initialising the rocket
 
-rocket = Rocket()
+rocket1 = Rocket(135, 420, 1)
+
+rocket2 = Rocket(455,420, 2)
 
 while not done:
 
@@ -31,25 +36,31 @@ while not done:
             done = True  
 
     # Checking if the rocket touched a rock
-    listOfRocks.Collision(screen,rocket)
+    listOfRocks.Collision(screen,rocket1)
+    listOfRocks.Collision(screen,rocket2)
 
     # update the stat of the rocket
-    rocket.update(screen,fpsClock.get_time())
+    rocket1.update(screen,fpsClock.get_time())
+    rocket2.update(screen,fpsClock.get_time())
 
-    # update the state of rocks
-    listOfRocks.update(fpsClock.get_time(), rocket.score)
+    # update the state of rocks1
+    listOfRocks.update(fpsClock.get_time(), rocket1.score)
     
     # make the screen black
     screen.fill((0,0,0))
-       
+    pygame.draw.rect(screen, (255,255,255), centerRect)
     # Draw the rocks
     listOfRocks.draw(screen)
    
     # Draw the rocket
-    rocket.draw(screen)
+    rocket1.draw(screen)
+
+    rocket2.draw(screen)
 
     # Draw the score and the PB
-    rocket.drawScore(screen)
+    rocket1.drawScore(screen,5)
+
+    rocket2.drawScore(screen,500)
 
     pygame.display.flip()  
     fpsClock.tick(30)

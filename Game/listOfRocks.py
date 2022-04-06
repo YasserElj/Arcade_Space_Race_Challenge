@@ -53,7 +53,7 @@ class ListOfRocks:
 
         spawnProbability =(atan((score-10)/10)*(30/(1.5*pi))+6)*(deltaTime/1000)*70
         if (randrange(0, 100) < spawnProbability):
-            self.list.append(Rock(0,randrange(20, 420),(50 + log10(1 + 10 * score))))
+            self.list.append(Rock(0,randrange(20, 400),(50 + log10(1 + 10 * score))))
 
 
         
