@@ -23,9 +23,12 @@ class Rocket:
         font = pygame.font.SysFont('freesansbold.ttc', 40)
         scoreText = font.render(f'Score : {self.score} ', True, (255,255,255))
         screen.blit(scoreText, (c1,5))
-        PBText = font.render(f'PB : {self.PB} ', True, (0,255,0))
-        screen.blit(PBText, (c1,450))
-
+        if self.player == 1:
+            PBText = font.render(f'PB : {self.PB} ', True, (255,255,0))
+            screen.blit(PBText, (c1,450))
+        elif self.player == 2:
+            PBText = font.render(f'PB : {self.PB} ', True, (0,255,255))
+            screen.blit(PBText, (c1+50,450))
     # Delta-time is the amount of time that passed since the last frame
 
     def update(self,screen,deltatime,velocity=100):
