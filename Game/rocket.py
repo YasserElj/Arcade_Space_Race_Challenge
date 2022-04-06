@@ -25,18 +25,19 @@ class Rocket:
         PBText = font.render(f'PB : {self.PB} ', True, (0,255,0))
         screen.blit(PBText, (5,450))
 
+    # Delta-time is the amount of time that passed since the last frame
 
-    def update(self,screen, velocity=5, ):
+    def update(self,screen,deltatime,velocity=100):
         effect = pygame.mixer.Sound('sounds/score.wav')
         pressed = pygame.key.get_pressed()  
         if pressed[pygame.K_UP]: 
-            self.y -= velocity
+            self.y -= velocity*deltatime/1000
         if pressed[pygame.K_DOWN] and self.y<430: 
-            self.y += velocity
+            self.y += velocity*deltatime/1000
         if pressed[pygame.K_LEFT] and self.x>0: 
-            self.x -= velocity
+            self.x -= velocity*deltatime/1000
         if pressed[pygame.K_RIGHT] and self.x<590: 
-            self.x += velocity
+            self.x += velocity*deltatime/1000
         if self.y<-50:
             self.score+=1
             (self.x,self.y)=self.DEFAULT_IMAGE_POSITION

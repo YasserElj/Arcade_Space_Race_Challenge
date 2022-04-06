@@ -13,6 +13,8 @@ class ListOfRocks:
     def setScore(self, score):
         self.score = score
 
+    # Delta-time is the amount of time that passed since the last frame
+
     def update(self, deltaTime, score):
         self.spawnNewRock(deltaTime, score)
         self.updateRocks(deltaTime)
@@ -46,16 +48,12 @@ class ListOfRocks:
 
 
     def spawnNewRock(self, deltaTime, score):
-        spawnProbability =(atan((score-10)/10)*(30/(1.5*pi))+6)*deltaTime*70
-        print(spawnProbability)
+
+        # The probability of a rock getting created
+
+        spawnProbability =(atan((score-10)/10)*(30/(1.5*pi))+6)*(deltaTime/1000)*70
         if (randrange(0, 100) < spawnProbability):
-            self.list.append(
-                Rock(
-                        0,
-                        randrange(20, 420),
-                        (50 + log10(1 + 10 * score))                        
-                    )
-            )
+            self.list.append(Rock(0,randrange(20, 420),(50 + log10(1 + 10 * score))))
 
 
         
