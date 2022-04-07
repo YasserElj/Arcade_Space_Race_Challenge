@@ -13,7 +13,7 @@ class Rocket:
         
 
     def draw(self,screen):
-        rocket = pygame.image.load("images/rocket.png")
+        rocket = pygame.image.load("../images/rocket.png")
         rocket = pygame.transform.scale(rocket, self.DEFAULT_IMAGE_SIZE)
         screen.blit(rocket, (self.x,self.y))
         rocketrect = rocket.get_rect()
@@ -32,7 +32,7 @@ class Rocket:
     # Delta-time is the amount of time that passed since the last frame
 
     def update(self,screen,deltatime,velocity=100):
-        effect = pygame.mixer.Sound('sounds/score.wav')
+        effect = pygame.mixer.Sound('../sounds/score.wav')
         pressed = pygame.key.get_pressed()  
         if self.player == 1:
             if pressed[ord('w')]  : 

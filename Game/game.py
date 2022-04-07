@@ -11,7 +11,7 @@ screen = pygame.display.set_mode((640,480))
 done = False
 
 # Playing the music
-pygame.mixer.music.load('sounds/music.mp3')
+pygame.mixer.music.load('../sounds/music.mp3')
 pygame.mixer.music.set_volume(0.3)
 pygame.mixer.music.play(-1)
 
